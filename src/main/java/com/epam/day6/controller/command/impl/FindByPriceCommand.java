@@ -1,6 +1,6 @@
 package com.epam.day6.controller.command.impl;
 
-import com.epam.day6.controller.command.ICommand;
+import com.epam.day6.controller.command.Command;
 import com.epam.day6.response.ErrorCode;
 import com.epam.day6.response.Response;
 import com.epam.day6.service.BookService;
@@ -9,18 +9,18 @@ import com.epam.day6.util.ResponseHelper;
 import java.util.List;
 import java.util.Map;
 
-public class FindById implements ICommand {
+public class FindByPriceCommand implements Command {
 
-    private static final String ID = "id";
+    private static final String PRICE = "price";
 
     @Override
     public Response execute(Map<String, List<String>> data) {
         BookService service = new BookService();
-        List<String> id = data.get(ID);
+        List<String> price = data.get(PRICE);
         try {
-            int intId = Integer.parseInt(id.get(0));
-            Response response = service.findById(intId);
-            return response;
+            double doublePrice = Double.parseDouble(price.get(0));
+            List foundBooks = service.findByPrice(doublePrice);
+            return ResponseHelper.makeOkResponse(foundBooks);
         } catch (NumberFormatException e) {
             return ResponseHelper.makeErrorResponse(ErrorCode.PARSING_ERROR);
         }

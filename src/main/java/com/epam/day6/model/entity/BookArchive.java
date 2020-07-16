@@ -1,7 +1,5 @@
 package com.epam.day6.model.entity;
 
-import com.epam.day6.exception.BookDAOException;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -12,7 +10,7 @@ public class BookArchive {
     private static BookArchive archive;
 
     private BookArchive() {
-        this.books = new ArrayList<Book>();
+        this.books = new ArrayList<>();
     }
 
     public static BookArchive getArchive() {
@@ -22,7 +20,7 @@ public class BookArchive {
         return archive;
     }
 
-    public boolean addBook(Book book) throws BookDAOException {
+    public boolean addBook(Book book) {
         if (books.contains(book)) {
             return false;
         }
@@ -33,7 +31,7 @@ public class BookArchive {
         return true;
     }
 
-    public boolean removeBook(Book book) throws BookDAOException {
+    public boolean removeBook(Book book) {
         if (!books.contains(book)) {
             return false;
         }

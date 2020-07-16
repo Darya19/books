@@ -1,13 +1,13 @@
 package com.epam.day6.controller.command;
 
-import com.epam.day6.controller.command.impl.EmptyICommand;
+import com.epam.day6.controller.command.impl.EmptyCommand;
 
 public class ActionProvider {
 
-    public static ICommand defineCommand(String request) {
-        ICommand command;
+    public static Command defineCommand(String request) {
+        Command command;
         if (request == null || request.isEmpty()) {
-            return new EmptyICommand();
+            return new EmptyCommand();
         } else {
             CommandType commandType = CommandType.valueOf(request.toUpperCase());
             command = commandType.getCommand();

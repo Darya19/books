@@ -5,6 +5,6 @@ public enum ErrorCode {
     NONE,
     VALIDATION_ERROR,
     PARSING_ERROR,
-    PRESENT_ERROR,
-    EMPTY_COMMAND
+    BOOK_PRESENT_ERROR,
+    EMPTY_COMMAND;
 }

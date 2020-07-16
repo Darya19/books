@@ -5,7 +5,7 @@ import com.epam.day6.response.Response;
 import java.util.List;
 import java.util.Map;
 
-public interface ICommand {
+public interface Command {
 
     Response execute(Map<String, List<String>> data);
 }

@@ -2,6 +2,8 @@ package com.epam.day6.validator;
 
 import com.epam.day6.model.entity.Book;
 
+import java.util.List;
+
 public class BookValidator {
 
     private final int pagesMaxValue = 1000;
@@ -13,19 +15,19 @@ public class BookValidator {
     private final int authorsMinNumber = 1;
     private final int authorsMaxNumber = 10;
 
-    public boolean validatePages(Book book) {
-        return book.getPages() < pagesMaxValue && book.getPages() > pagesMinValue;
+    public boolean isPageQuantityValid(int pages) {
+        return pages < pagesMaxValue && pages > pagesMinValue;
     }
 
-    public boolean validatePrice(Book book) {
-        return book.getPrice() > priceMinValue && book.getPrice() < priceMaxValue;
+    public boolean isPriceValid(double price) {
+        return price > priceMinValue && price < priceMaxValue;
     }
 
-    public boolean validateTitle(Book book) {
-        return book.getTitle().length() > titleMinLength && book.getTitle().length() < titleMaxLength;
+    public boolean isTitleValid(String title) {
+        return title.length() > titleMinLength && title.length() < titleMaxLength;
     }
 
-    public boolean validateAuthors(Book book) {
-        return book.getAuthors().size() > authorsMinNumber && book.getAuthors().size() < authorsMaxNumber;
+    public boolean isAuthorsListValid(List<String> authors) {
+        return authors.size() > authorsMinNumber && authors.size() < authorsMaxNumber;
     }
 }

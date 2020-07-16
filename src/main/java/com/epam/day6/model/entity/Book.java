@@ -1,5 +1,7 @@
 package com.epam.day6.model.entity;
 
+import com.epam.day6.util.IdCreator;
+
 import java.util.List;
 
 public class Book {
@@ -10,8 +12,8 @@ public class Book {
     private double price;
     private int pages;
 
-    public Book(int id, String title, List<String> authors, double price, int pages) {
-        this.id = id;
+    public Book(String title, List<String> authors, double price, int pages) {
+        this.id = IdCreator.createId();
         this.title = title;
         this.authors = authors;
         this.price = price;
