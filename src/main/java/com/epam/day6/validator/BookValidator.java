@@ -1,7 +1,5 @@
 package com.epam.day6.validator;
 
-import com.epam.day6.model.entity.Book;
-
 import java.util.List;
 
 public class BookValidator {

@@ -1,12 +1,9 @@
 package com.epam.day6.service;
 
-import com.epam.day6.controller.command.CommandType;
 import com.epam.day6.exception.BookDAOException;
 import com.epam.day6.exception.BookServiceException;
 import com.epam.day6.model.dao.impl.BookListDAOImpl;
 import com.epam.day6.model.entity.Book;
-import com.epam.day6.response.Response;
-import com.epam.day6.util.ResponseHelper;
 import com.epam.day6.validator.BookValidator;
 
 import java.util.ArrayList;
@@ -56,12 +53,12 @@ public class BookService<T> {
         if (validator.isTitleValid(title)) {
             return dao.findByTitle(title);
         } else {
-          return new ArrayList<>();
+            return new ArrayList<>();
         }
     }
 
     public List<Book> findByAuthor(String author) {
-            return dao.findByAuthor(author);
+        return dao.findByAuthor(author);
     }
 
     public List<Book> findByPrice(double price) {
@@ -83,13 +80,14 @@ public class BookService<T> {
     }
 
     public List<Book> sortById() {
-       return dao.sortBooksById();
+        return dao.sortBooksById();
     }
 
     public List<Book> sortByTitle() {
         return dao.sortBooksByTitle();
     }
-public List<Book> sortByAuthors() {
+
+    public List<Book> sortByAuthors() {
         return dao.sortBooksByAuthors();
     }
 

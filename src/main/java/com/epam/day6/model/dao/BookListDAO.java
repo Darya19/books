@@ -1,7 +1,7 @@
 package com.epam.day6.model.dao;
 
-import com.epam.day6.model.entity.Book;
 import com.epam.day6.exception.BookDAOException;
+import com.epam.day6.model.entity.Book;
 
 import java.util.List;
 
