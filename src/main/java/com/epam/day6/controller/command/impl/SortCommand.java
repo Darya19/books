@@ -6,6 +6,7 @@ import com.epam.day6.controller.response.ResponseHelper;
 import com.epam.day6.model.entity.Book;
 import com.epam.day6.model.service.BookService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -20,27 +21,31 @@ public class SortCommand implements Command {
 
     @Override
     public Response execute(Map<String, String> data) {
-        BookService service = new BookService();
-        for (String key : data.keySet()) {
-            switch (key) {
-                case ID:
-                    foundBooks = service.sortById();
-                    break;
-                case TITLE:
-                    foundBooks = service.sortByTitle();
-                    break;
-                case AUTHOR:
-                    foundBooks = service.sortByAuthor();
-                    break;
-                case PRICE:
-                    foundBooks = service.sortByPrice();
-                    break;
-                case PAGES:
-                    foundBooks = service.sortByPages();
-                    break;
-            }
-            return ResponseHelper.makeOkResponse(foundBooks);
+        if (data == null || data.isEmpty()) {
+            return ResponseHelper.makeErrorResponse("impossible define what find");
         }
-        return ResponseHelper.makeErrorResponse("impossible define how to sort");
+        BookService service = new BookService();
+        List<String> command = new ArrayList<>();
+        for (String key : data.keySet()) {
+            command.add(key);
+        }
+        switch (command.get(0)) {
+            case ID:
+                foundBooks = service.sortById();
+                break;
+            case TITLE:
+                foundBooks = service.sortByTitle();
+                break;
+            case AUTHOR:
+                foundBooks = service.sortByAuthor();
+                break;
+            case PRICE:
+                foundBooks = service.sortByPrice();
+                break;
+            case PAGES:
+                foundBooks = service.sortByPages();
+                break;
+        }
+        return ResponseHelper.makeOkResponse(foundBooks);
     }
 }

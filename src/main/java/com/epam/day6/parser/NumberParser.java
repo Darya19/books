@@ -6,19 +6,17 @@ public class NumberParser {
 
     public int parseToInt(String value) throws BookServiceException {
         try {
-        return Integer.parseInt(value);
-        }
-        catch (NumberFormatException e) {
+            return Integer.parseInt(value);
+        } catch (NumberFormatException e) {
             throw new BookServiceException("parsing issues", e);
         }
     }
 
-    public double parseToDouble(String value) throws BookServiceException{
+    public double parseToDouble(String value) throws BookServiceException {
         try {
             return Double.parseDouble(value);
-        }
-        catch (NumberFormatException e) {
-            throw new BookServiceException("parsing issues",e);
+        } catch (NumberFormatException e) {
+            throw new BookServiceException("parsing issues", e);
         }
     }
 }

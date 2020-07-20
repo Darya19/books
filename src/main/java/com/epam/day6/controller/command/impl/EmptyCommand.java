@@ -4,7 +4,6 @@ import com.epam.day6.controller.command.Command;
 import com.epam.day6.controller.response.Response;
 import com.epam.day6.controller.response.ResponseHelper;
 
-import java.util.List;
 import java.util.Map;
 
 public class EmptyCommand implements Command {

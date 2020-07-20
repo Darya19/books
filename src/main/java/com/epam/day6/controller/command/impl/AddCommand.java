@@ -1,11 +1,11 @@
 package com.epam.day6.controller.command.impl;
 
 import com.epam.day6.controller.command.Command;
+import com.epam.day6.controller.response.Response;
+import com.epam.day6.controller.response.ResponseHelper;
 import com.epam.day6.exception.BookServiceException;
 import com.epam.day6.model.entity.Book;
-import com.epam.day6.controller.response.Response;
 import com.epam.day6.model.service.BookService;
-import com.epam.day6.controller.response.ResponseHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +25,9 @@ public class AddCommand implements Command {
         String title = data.get(TITLE);
         List<String> authors = new ArrayList<>();
         String[] authorMassive = data.get(AUTHORS).split(", ");
-        for (String author : authorMassive){
-        authors.add(author);}
+        for (String author : authorMassive) {
+            authors.add(author);
+        }
         String price = data.get(PRICE);
         String pages = data.get(PAGES);
         try {

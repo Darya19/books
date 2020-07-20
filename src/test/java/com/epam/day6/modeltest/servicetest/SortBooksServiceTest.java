@@ -1,9 +1,9 @@
 package com.epam.day6.modeltest.servicetest;
 
+import com.epam.day6.controllertest.StaticDataProvider;
 import com.epam.day6.model.entity.Book;
 import com.epam.day6.model.entity.BookArchive;
 import com.epam.day6.model.service.BookService;
-import com.epam.day6.controllertest.StaticDataProvider;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 

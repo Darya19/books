@@ -95,7 +95,7 @@ public class Book {
         return result;
     }
 
-    @Override //TODO toString for authors
+    @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Book{");
         sb.append("id=").append(id);

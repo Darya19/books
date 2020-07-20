@@ -24,10 +24,10 @@ public class BookArchive {
     }
 
     public boolean addBook(Book book) {
-        for(Book book1 : books){
-            if(book1.getTitle().equals(book.getTitle()) && book1.getAuthors().equals(book.getAuthors())
-            && book1.getPrice() == book.getPrice() && book1.getPages() == book.getPages())
-            return false;
+        for (Book book1 : books) {
+            if (book1.getTitle().equals(book.getTitle()) && book1.getAuthors().equals(book.getAuthors())
+                    && book1.getPrice() == book.getPrice() && book1.getPages() == book.getPages())
+                return false;
         }
         if (book == null) {
             return false;

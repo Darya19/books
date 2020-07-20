@@ -25,8 +25,9 @@ public class RemoveCommand implements Command {
         String title = data.get(TITLE);
         List<String> authors = new ArrayList<>();
         String[] authorMassive = data.get(AUTHORS).split(", ");
-        for (String author : authorMassive){
-            authors.add(author);}
+        for (String author : authorMassive) {
+            authors.add(author);
+        }
         String price = data.get(PRICE);
         String pages = data.get(PAGES);
         try {

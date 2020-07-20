@@ -1,6 +1,9 @@
 package com.epam.day6.controller.command;
 
-import com.epam.day6.controller.command.impl.*;
+import com.epam.day6.controller.command.impl.AddCommand;
+import com.epam.day6.controller.command.impl.FindCommand;
+import com.epam.day6.controller.command.impl.RemoveCommand;
+import com.epam.day6.controller.command.impl.SortCommand;
 
 public enum CommandType {
     ADD {{

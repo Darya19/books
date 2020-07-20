@@ -7,6 +7,7 @@ import com.epam.day6.exception.BookServiceException;
 import com.epam.day6.model.entity.Book;
 import com.epam.day6.model.service.BookService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -22,32 +23,36 @@ public class FindCommand implements Command {
 
     @Override
     public Response execute(Map<String, String> data) {
-        BookService service = new BookService();
-        for (String key : data.keySet()) {
-            try {
-                switch (key) {
-                    case ID:
-                        foundBooks = service.findById(data.get(key));
-                        break;
-                    case TITLE:
-                        foundBooks = service.findByTitle(data.get(key));
-                        break;
-                    case AUTHOR:
-                        foundBooks = service.findByAuthor(data.get(key));
-                        break;
-                    case PRICE:
-                        foundBooks = service.findByPrice(data.get(key));
-                        break;
-                    case PAGES:
-                        foundBooks = service.findByPages(data.get(key));
-                        break;
-                }
-                return ResponseHelper.makeOkResponse(foundBooks);
-            } catch (BookServiceException e) {
-                return ResponseHelper.makeErrorResponse(e.getMessage());
-            }
+        if (data == null || data.isEmpty()) {
+            return ResponseHelper.makeErrorResponse("impossible define what find");
         }
-        return ResponseHelper.makeErrorResponse("impossible define what find");
+        BookService service = new BookService();
+        List<String> command = new ArrayList<>();
+        for (String key : data.keySet()) {
+            command.add(key);
+        }
+        try {
+            switch (command.get(0)) {
+                case ID:
+                    foundBooks = service.findById(data.get(command.get(0)));
+                    break;
+                case TITLE:
+                    foundBooks = service.findByTitle(data.get(command.get(0)));
+                    break;
+                case AUTHOR:
+                    foundBooks = service.findByAuthor(data.get(command.get(0)));
+                    break;
+                case PRICE:
+                    foundBooks = service.findByPrice(data.get(command.get(0)));
+                    break;
+                case PAGES:
+                    foundBooks = service.findByPages(data.get(command.get(0)));
+                    break;
+            }
+            return ResponseHelper.makeOkResponse(foundBooks);
+        } catch (BookServiceException e) {
+            return ResponseHelper.makeErrorResponse(e.getMessage());
+        }
     }
 }
 
