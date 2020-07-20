@@ -12,6 +12,14 @@ public class Book {
     private double price;
     private int pages;
 
+    public Book(int id, String title, List<String> authors, double price, int pages) {
+        this.id = id;
+        this.title = title;
+        this.authors = authors;
+        this.price = price;
+        this.pages = pages;
+    }
+
     public Book(String title, List<String> authors, double price, int pages) {
         this.id = IdCreator.createId();
         this.title = title;

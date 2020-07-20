@@ -1,28 +1,28 @@
 package com.epam.day6.model.dao.impl;
 
-import com.epam.day6.exception.BookDAOException;
+import com.epam.day6.exception.BookDaoException;
 import com.epam.day6.model.comparator.*;
-import com.epam.day6.model.dao.BookListDAO;
+import com.epam.day6.model.dao.BookListDao;
 import com.epam.day6.model.entity.Book;
 import com.epam.day6.model.entity.BookArchive;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookListDAOImpl implements BookListDAO {
+public class BookListDaoImpl implements BookListDao {
 
     @Override
-    public boolean addBook(Book book) throws BookDAOException {
+    public boolean addBook(Book book) throws BookDaoException {
         if (!BookArchive.getArchive().addBook(book)) {
-            throw new BookDAOException("book already exists");
+            throw new BookDaoException("book already exists");
         }
         return true;
     }
 
     @Override
-    public boolean removeBook(Book book) throws BookDAOException {
+    public boolean removeBook(Book book) throws BookDaoException {
         if (!BookArchive.getArchive().removeBook(book)) {
-            throw new BookDAOException("book doesn't exist");
+            throw new BookDaoException("book doesn't exist");
         }
         return true;
     }
@@ -119,7 +119,6 @@ public class BookListDAOImpl implements BookListDAO {
 
     @Override
     public List<Book> getAllBooks() {
-        List<Book> books = new ArrayList<>(BookArchive.getArchive().getBooks());
-        return books;
+        return (BookArchive.getArchive().getBooks());
     }
 }

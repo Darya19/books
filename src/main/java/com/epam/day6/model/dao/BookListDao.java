@@ -1,15 +1,15 @@
 package com.epam.day6.model.dao;
 
-import com.epam.day6.exception.BookDAOException;
+import com.epam.day6.exception.BookDaoException;
 import com.epam.day6.model.entity.Book;
 
 import java.util.List;
 
-public interface BookListDAO {
+public interface BookListDao {
 
-    boolean addBook(Book book) throws BookDAOException;
+    boolean addBook(Book book) throws BookDaoException;
 
-    boolean removeBook(Book book) throws BookDAOException;
+    boolean removeBook(Book book) throws BookDaoException;
 
     List<Book> findById(int id);
 

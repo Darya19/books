@@ -7,26 +7,26 @@ import java.util.List;
 
 public class BookFactory {
 
-    public void createListOfBooks(List<Book> bookList) {
+    public static void createListOfBooks(List<Book> bookList) {
         List<String> authors = new ArrayList<>();
         authors.add("Alan Alexander Milne");
         authors.add("P.G.Wodehouse");
-        bookList.add(new Book("Winnie-the-Pooh", authors, 458.96, 345));
-        authors.clear();
+        bookList.add(new Book("Winnie-the-Pooh", authors, 458.96, 194));
+        authors = new ArrayList<>();
         authors.add("J.K. Rowling");
-        bookList.add(new Book("Harry Potter and the Philosopher’s Stone", authors, 780.8, 615));
-        authors.clear();
+        bookList.add(new Book("Harry Potter and the Philosopher’s Stone", authors, 780.8, 219));
+        authors = new ArrayList<>();
         authors.add("Arthur Hailey");
-        bookList.add(new Book("Airport", authors, 236.99, 312));
-        authors.clear();
+        bookList.add(new Book("Airport", authors, 746.36, 277));
+        authors = new ArrayList<>();
         authors.add("Erich Gamma");
         authors.add("Richard Helm");
         authors.add("Ralph Johnson");
         authors.add("John Vlissides");
         bookList.add(new Book("Design Patterns: Elements of Reusable Object-Oriented Software",
                 authors, 236.99, 312));
-        authors.clear();
+        authors = new ArrayList<>();
         authors.add("Ralph Johnson");
-        bookList.add(new Book("Ralph Johnson: Complete Works", authors, 236.99, 312));
+        bookList.add(new Book("Ralph Johnson: Complete Works", authors, 236.99, 448));
     }
 }

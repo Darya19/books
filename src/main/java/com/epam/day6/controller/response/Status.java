@@ -1,4 +1,4 @@
-package com.epam.day6.response;
+package com.epam.day6.controller.response;
 
 public enum Status {
 

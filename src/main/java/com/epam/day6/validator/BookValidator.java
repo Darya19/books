@@ -11,7 +11,7 @@ public class BookValidator {
     private final int titleMaxLength = 100;
     private final int titleMinLength = 3;
     private final int authorsMinNumber = 1;
-    private final int authorsMaxNumber = 10;
+    private final int authorsMaxNumber = 5;
 
     public boolean isPageQuantityValid(int pages) {
         return pages < pagesMaxValue && pages > pagesMinValue;
@@ -26,6 +26,6 @@ public class BookValidator {
     }
 
     public boolean isAuthorsListValid(List<String> authors) {
-        return authors.size() > authorsMinNumber && authors.size() < authorsMaxNumber;
+        return authors.size() >= authorsMinNumber && authors.size() < authorsMaxNumber;
     }
 }

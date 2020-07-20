@@ -1,9 +1,8 @@
 package com.epam.day6.controller.command.impl;
 
 import com.epam.day6.controller.command.Command;
-import com.epam.day6.response.ErrorCode;
-import com.epam.day6.response.Response;
-import com.epam.day6.util.ResponseHelper;
+import com.epam.day6.controller.response.Response;
+import com.epam.day6.controller.response.ResponseHelper;
 
 import java.util.List;
 import java.util.Map;
@@ -11,7 +10,7 @@ import java.util.Map;
 public class EmptyCommand implements Command {
 
     @Override
-    public Response execute(Map<String, List<String>> data) {
-        return ResponseHelper.makeErrorResponse(ErrorCode.EMPTY_COMMAND);
+    public Response execute(Map<String, String> data) {
+        return ResponseHelper.makeErrorResponse("Command don't set");
     }
 }

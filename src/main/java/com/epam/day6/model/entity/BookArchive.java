@@ -1,5 +1,7 @@
 package com.epam.day6.model.entity;
 
+import com.epam.day6.factory.BookFactory;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -11,6 +13,7 @@ public class BookArchive {
 
     private BookArchive() {
         this.books = new ArrayList<>();
+        BookFactory.createListOfBooks(books);
     }
 
     public static BookArchive getArchive() {
@@ -21,7 +24,9 @@ public class BookArchive {
     }
 
     public boolean addBook(Book book) {
-        if (books.contains(book)) {
+        for(Book book1 : books){
+            if(book1.getTitle().equals(book.getTitle()) && book1.getAuthors().equals(book.getAuthors())
+            && book1.getPrice() == book.getPrice() && book1.getPages() == book.getPages())
             return false;
         }
         if (book == null) {
@@ -32,14 +37,14 @@ public class BookArchive {
     }
 
     public boolean removeBook(Book book) {
-        if (!books.contains(book)) {
-            return false;
+        for (Book book1 : books) {
+            if ((book1.getTitle().equals(book.getTitle()) && book1.getAuthors().equals(book.getAuthors())
+                    && book1.getPrice() == book.getPrice() && book1.getPages() == book.getPages())) {
+                books.remove(book1);
+                return true;
+            }
         }
-        if (book == null) {
-            return false;
-        }
-        books.remove(book);
-        return true;
+        return false;
     }
 
     public int size() {
@@ -47,8 +52,6 @@ public class BookArchive {
     }
 
     public List<Book> getBooks() {
-        List<Book> copyBooks = new ArrayList<>();
-        Collections.copy(books, copyBooks);
-        return copyBooks;
+        return Collections.unmodifiableList(this.books);
     }
 }
